@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Word counter: index
+{% endblock %}
+
+{% block main %}
+
+
+<h4 style="text-align: left;">What is wordcounter.space:</h4>
+
+<div class="whatISit">
+
+In short: service that allows you to conduct your own research in the field of the most used words of any language
+(easily and for free)
+<hr>
+
+In detail: when you learn a new language, you will inevitably face the problem of choosing the words that you need to learn
+<br>
+<br>
+According to google:
+<br>
+There are more than a million English words
+<br>
+about 170 000 words in current use
+<br>
+and 20 000 - 30 000 words used by each individual person
+<br>
+<br>
+In fact, it is enough to know 7000 words to be fluent in the language.
+<br>
+So, the problem is how to get the list of these 7000 words<br>
+
+In addition, about 20% of these 7000 words = 1400 words are used in 50% of all everyday conversations.
+<br>
+<br>
+I'm sure you've seen these "must-know" dictionaries.<br>
+But who did them?<br>
+Can you trust these random researchers?<br>
+Absolutely not!<br>
+We are all different, and we use different vocabulary<br>
+<br>
+
+So this site allow you to make your own dictionary of words<br>
+and learn important words first
+</div>
+
+<br>
+
+
+<h4 style="text-align: left;">How to use it:</h4>
+<div class="whatISit">
+    You can "convert" any text in format: "word" - "times it used"<br>
+    You can "convert" songs lyrics, movies, books, essays, articles, ANY text<br>
+    Program will remove any digits, symbols, and return list of words for you
+
+    <br><br>
+    After you log in, go to "Query" page<br>
+    There you can type text in form, or put it via .txt file (if it is big) for example movie subtitles<br><br>
+
+    How do i "convert" movie subtitles?<br>
+    Just google "movie" subtitles<br>
+    Copy and paste all content to file .txt format <br>
+    place this .txt file in the query page<br><br>
+    Don't be afraid to touch all buttons on this site,    <br>
+    You cant break anything<br><br>
+
+
+    And keep learning!
+
+
+</div>
+
+
+
+
+
+{# TABLE 1 #}
+<br>
+<hr>
+<h4 style="text-align: left;">Some statistics:</h4>
+    <table class="table table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Diffrent words in database:</th>
+                <th>number of times they are used</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>{{ COUNT_words }}</td>
+                <td>{{ COUNT_counter }}</td>
+
+            </tr>
+        </table>
+        </tbody>
+
+        <h4 style="text-align: left;">Top 10 used words:</h4>
+        {# TABLE 2 #}
+
+        <table class="table table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th>№</th>
+                    <th>Word</th>
+                    <th>times it used</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% set count = namespace(value=1) %}
+                {% for i in dictionary %}
+
+
+
+                <tr>
+                    <td>{{ count.value }}</td>
+                    <td>{{ i["word"] }}</td>
+                    <td>{{ i["SUM(counter)"] }}</td>
+                {% set count.value = count.value + 1 %}
+
+                </tr>
+                {% endfor %}
+
+
+            </tbody>
+        </table>
+
+{% endblock %}

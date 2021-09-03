@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Global Words
+{% endblock %}
+
+{% block main %}
+
+    Global Words / <a href="/global_words_personal">Personal Global Words</a>
+    <hr>
+    this page contains ALL data, from ALL  <b>wordcounter.space</b> users<br>
+    these words are the most commonly used
+    <hr>
+    <table class="table table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Diffrent words:</th>
+                <th>number of times they are used</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>{{ COUNT_words }}</td>
+                <td>{{ COUNT_counter }}</td>
+
+            </tr>
+        </tbody>
+
+
+    {# this works by sorted_items -> it is tupple #}
+
+        <table class="table table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th>№</th>
+                    <th>Word</th>
+                    <th>Counter</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% set count = namespace(value=1) %}
+                {% for i in dictionary %}
+
+
+
+                <tr>
+                    <td>{{ count.value }}</td>
+                    <td>{{ i["word"] }}</td>
+                    <td>{{ i["SUM(counter)"] }}</td>
+                {% set count.value = count.value + 1 %}
+
+                </tr>
+                {% endfor %}
+
+
+            </tbody>
+
+        </table>
+
+
+
+{% endblock %}

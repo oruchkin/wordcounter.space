@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Mistake - haha
+{% endblock %}
+
+{% block main %}
+    <img alt="{{ top }}" class="border" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=http://wordcounter.space/static/mistake.png" title="{{ top }}">
+{% endblock %}
+
+
+
+    {# working for test purpose
+    <img alt="{{ top }}" class="border" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png" title="{{ top }}">
+    #}

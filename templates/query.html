@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Query
+{% endblock %}
+
+{% block main %}
+    <div class="form-query">
+        <form action="/query" method="POST">
+            <div class="mb-3">
+
+                <div class="query_chose"><p>Query via form</p> &nbsp;/&nbsp; <p><a href="/query_txt">Query via .txt file</a></div>
+            <hr>
+
+
+                <label for="exampleFormControlInput1" class="form-label">Name of query:</label>
+                <input name="query_name" type="text" class="form-control" id="name_of_query" required placeholder="Name of query (movie,book,lecture)">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Text area:</label>
+                <textarea name="query_text" class="form-control" id="exampleFormControlTextarea1" required rows="10" placeholder="put your text right here ===>>>"></textarea>
+            </div>
+
+            {# check box for global
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="query_to_global">
+                <label class="form-check-label" for="exampleCheck1">Add words to global list</label>
+            </div>
+            #query_to_global=on or none commented for now
+            #query_to_global = request.form.get("query_to_global")#}
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+
+
+{% endblock %}

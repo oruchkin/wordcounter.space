@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Word counter: index
+{% endblock %}
+
+{% block main %}
+    <b>{{ query_name }}</b>
+    <hr>
+    <table class="table table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>№</th>
+                <th>Word</th>
+                <th>Counter</th>
+            </tr>
+        </thead>
+            <tbody>
+                {% set count = namespace(value=1) %}
+                {% for i in dictionary %}
+
+
+
+                <tr>
+                    <td>{{ count.value }}</td>
+                    <td>{{ i["word"] }}</td>
+                    <td>{{ i["SUM(counter)"] }}</td>
+                {% set count.value = count.value + 1 %}
+
+                </tr>
+                {% endfor %}
+
+
+            </tbody>
+    </table>
+
+
+{% endblock %}

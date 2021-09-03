@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Query_txt
+{% endblock %}
+
+{% block main %}
+    <div class="form-query">
+        <form action="/query_txt" method="POST" enctype="multipart/form-data" >
+            <div class="mb-3">
+                <div class="query_chose"><a href="/query">Query via form</a> &nbsp;/&nbsp; <p>Query via .txt file</p></div>
+
+            <hr>
+
+            {% if message %}
+                <b>{{ message }}</b>
+            <hr>
+            {% endif %}
+
+
+            <label for="exampleFormControlInput1" class="form-label">Name of query:</label>
+                <input name="query_name" type="text" class="form-control" id="name_of_query" required placeholder="Name of query (movie,book,lecture)">
+            </div>
+
+            <div class="input-group">
+                <input name="query_txt" type="file" accept=".txt" class="form-control" id="query_txt" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+
+            </div>
+
+
+            <br>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        </form>
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History detail
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Title:</th>
+                <th>Different words</th>
+                <th>Words total</th>
+                <th>Time created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ name_of_query }}</td>
+                <td>{{ COUNT_words }}</td>
+                <td>{{ COUNT_counter }}</td>
+                <td>{{ time_created }}</td>
+            </tr>
+        </tbody>
+
+
+    </table>
+    <hr>
+    <table class="table table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>№</th>
+                <th>Word</th>
+                <th>Counter</th>
+            </tr>
+        </thead>
+            <tbody>
+                {% set count = namespace(value=1) %}
+                {% for i in history %}
+
+
+
+                <tr>
+                    <td>{{ count.value }}</td>
+                    <td>{{ i["word"] }}</td>
+                    <td>{{ i["SUM(counter)"] }}</td>
+                {% set count.value = count.value + 1 %}
+
+                </tr>
+                {% endfor %}
+
+
+            </tbody>
+    </table>
+
+
+{% endblock %}

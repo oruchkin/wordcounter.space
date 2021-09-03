@@ -1,0 +1,51 @@
+
+/* login and register forms */
+.login .form-control
+{
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    width: auto;
+
+    /* spaces between inputs in forms */
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.query_chose{
+    display: flex;
+}
+
+.query_chose a{
+    text-decoration:none;
+}
+
+main
+{
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* Center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* Constrain images on small screens */
+    max-width: 100%;
+}
+
+.form-query{
+    text-align: left;
+    padding:30px;
+    outline: 2px solid lightgrey;
+}
+
+.whatISit{
+    outline: 2px solid lightgrey;
+    text-align: left;
+    padding:20px;
+
+}
+
